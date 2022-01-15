@@ -58,6 +58,9 @@ namespace AutoMoreira.Persistence.Migrations
                     b.Property<string>("Cor")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ImagemURL")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("MarcaId")
                         .HasColumnType("INTEGER");
 

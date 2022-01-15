@@ -43,7 +43,8 @@ namespace AutoMoreira.Persistence.Migrations
                     ModeloId = table.Column<int>(type: "INTEGER", nullable: false),
                     Ano = table.Column<int>(type: "INTEGER", nullable: false),
                     Cor = table.Column<string>(type: "TEXT", nullable: true),
-                    Observacoes = table.Column<string>(type: "TEXT", nullable: true)
+                    Observacoes = table.Column<string>(type: "TEXT", nullable: true),
+                    ImagemURL = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoMoreira.Persistence.Migrations
 {
     [DbContext(typeof(AutoMoreiraContext))]
-    [Migration("20220114022722_Initial")]
+    [Migration("20220115171045_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,9 @@ namespace AutoMoreira.Persistence.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cor")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImagemURL")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("MarcaId")

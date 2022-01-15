@@ -13,6 +13,7 @@ namespace AutoMoreira.Domain
         public int Ano {get; set;}
         public string Cor {get; set;}
         public string Observacoes {get; set;}
+        public string ImagemURL { get; set; }
         
     }
 }
