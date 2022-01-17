@@ -10,6 +10,7 @@ namespace AutoMoreira.Domain
         public int ModeloId {get; set;}
         public string Nome {get; set;}
         public int MarcaId {get; set;}
+        public Marca Marca {get; set;} 
     
         
     }

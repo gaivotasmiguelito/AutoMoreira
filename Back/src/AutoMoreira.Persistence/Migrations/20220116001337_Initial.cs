@@ -31,6 +31,12 @@ namespace AutoMoreira.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Modelos", x => x.ModeloId);
+                    table.ForeignKey(
+                        name: "FK_Modelos_Marcas_MarcaId",
+                        column: x => x.MarcaId,
+                        principalTable: "Marcas",
+                        principalColumn: "MarcaId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,19 +55,46 @@ namespace AutoMoreira.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Veiculos", x => x.VeiculoId);
+                    table.ForeignKey(
+                        name: "FK_Veiculos_Marcas_MarcaId",
+                        column: x => x.MarcaId,
+                        principalTable: "Marcas",
+                        principalColumn: "MarcaId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Veiculos_Marcas_ModeloId",
+                        column: x => x.ModeloId,
+                        principalTable: "Marcas",
+                        principalColumn: "MarcaId",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Modelos_MarcaId",
+                table: "Modelos",
+                column: "MarcaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Veiculos_MarcaId",
+                table: "Veiculos",
+                column: "MarcaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Veiculos_ModeloId",
+                table: "Veiculos",
+                column: "ModeloId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Marcas");
-
-            migrationBuilder.DropTable(
                 name: "Modelos");
 
             migrationBuilder.DropTable(
                 name: "Veiculos");
+
+            migrationBuilder.DropTable(
+                name: "Marcas");
         }
     }
 }

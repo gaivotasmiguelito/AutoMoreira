@@ -46,8 +46,12 @@ namespace AutoMoreira.API
                     );
 
             services.AddScoped<IVeiculoService, VeiculoService>();
+            services.AddScoped<IMarcaService, MarcaService>();
+            services.AddScoped<IModeloService, ModeloService>();
             services.AddScoped<IGeralPersist, GeralPersist>();
             services.AddScoped<IVeiculoPersist, VeiculoPersist>();
+            services.AddScoped<IMarcaPersist, MarcaPersist>();
+            services.AddScoped<IModeloPersist, ModeloPersist>();
 
  
             services.AddSwaggerGen(c =>

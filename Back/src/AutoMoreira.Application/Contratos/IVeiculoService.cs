@@ -9,8 +9,8 @@ namespace AutoMoreira.Application.Contratos
     public interface IVeiculoService
     {
         Task<Veiculo> AddVeiculos(Veiculo model);
-        Task<Veiculo> UpdateVeiculo(int eventoId, Veiculo model);
-        Task<bool> DeleteVeiculo(int eventoId);
+        Task<Veiculo> UpdateVeiculo(int veiculoId, Veiculo model);
+        Task<bool> DeleteVeiculo(int veiculoId);
 
         Task<Veiculo[]> GetAllVeiculosAsync();
         Task<Veiculo> GetVeiculoByIdAsync(int veiculoId);

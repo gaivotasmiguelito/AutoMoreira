@@ -43,6 +43,8 @@ namespace AutoMoreira.Persistence.Migrations
 
                     b.HasKey("ModeloId");
 
+                    b.HasIndex("MarcaId");
+
                     b.ToTable("Modelos");
                 });
 
@@ -72,7 +74,41 @@ namespace AutoMoreira.Persistence.Migrations
 
                     b.HasKey("VeiculoId");
 
+                    b.HasIndex("MarcaId");
+
+                    b.HasIndex("ModeloId");
+
                     b.ToTable("Veiculos");
+                });
+
+            modelBuilder.Entity("AutoMoreira.Domain.Modelo", b =>
+                {
+                    b.HasOne("AutoMoreira.Domain.Marca", "Marca")
+                        .WithMany()
+                        .HasForeignKey("MarcaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Marca");
+                });
+
+            modelBuilder.Entity("AutoMoreira.Domain.Veiculo", b =>
+                {
+                    b.HasOne("AutoMoreira.Domain.Marca", "Marca")
+                        .WithMany()
+                        .HasForeignKey("MarcaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AutoMoreira.Domain.Marca", "Modelo")
+                        .WithMany()
+                        .HasForeignKey("ModeloId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Marca");
+
+                    b.Navigation("Modelo");
                 });
 #pragma warning restore 612, 618
         }
