@@ -22,7 +22,7 @@ namespace AutoMoreira.Persistence
         {
             IQueryable<Veiculo> query = _context.Veiculos;
                 
-            query = query.AsNoTracking().OrderBy(v => v.VeiculoId);
+            query = query.AsNoTracking().Include(x => x.Marca).Include(y => y.Modelo).OrderBy(v => v.VeiculoId);
 
             return await query.ToArrayAsync();
         }

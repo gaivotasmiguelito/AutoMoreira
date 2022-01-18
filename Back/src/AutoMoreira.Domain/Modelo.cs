@@ -8,7 +8,7 @@ namespace AutoMoreira.Domain
     public class Modelo
     {
         public int ModeloId {get; set;}
-        public string Nome {get; set;}
+        public string ModeloNome {get; set;}
         public int MarcaId {get; set;}
         public Marca Marca {get; set;} 
     

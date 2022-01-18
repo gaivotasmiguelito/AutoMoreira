@@ -21,7 +21,7 @@ namespace AutoMoreira.Persistence
         {
             IQueryable<Modelo> query = _context.Modelos;
                 
-            query = query.AsNoTracking().OrderBy(m => m.ModeloId);
+            query = query.AsNoTracking().Include(x => x.Marca).OrderBy(m => m.ModeloId);
 
             return await query.ToArrayAsync();
         }

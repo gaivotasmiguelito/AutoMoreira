@@ -12,7 +12,7 @@ namespace AutoMoreira.Persistence.Migrations
                 {
                     MarcaId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true)
+                    MarcaNome = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,7 +25,7 @@ namespace AutoMoreira.Persistence.Migrations
                 {
                     ModeloId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
+                    ModeloNome = table.Column<string>(type: "TEXT", nullable: true),
                     MarcaId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

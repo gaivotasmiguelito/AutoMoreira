@@ -17,8 +17,8 @@ namespace AutoMoreira.Persistence.Contextos
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
         
+
         }
     }
 }

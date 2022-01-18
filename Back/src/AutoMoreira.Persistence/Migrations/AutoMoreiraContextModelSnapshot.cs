@@ -21,7 +21,7 @@ namespace AutoMoreira.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("MarcaNome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("MarcaId");
@@ -38,7 +38,7 @@ namespace AutoMoreira.Persistence.Migrations
                     b.Property<int>("MarcaId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("ModeloNome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ModeloId");
