@@ -57,6 +57,9 @@ namespace AutoMoreira.Persistence.Migrations
                     b.Property<int>("Ano")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Combustivel")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Cor")
                         .HasColumnType("TEXT");
 
@@ -70,6 +73,12 @@ namespace AutoMoreira.Persistence.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Observacoes")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Preco")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Versao")
                         .HasColumnType("TEXT");
 
                     b.HasKey("VeiculoId");
@@ -100,7 +109,7 @@ namespace AutoMoreira.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AutoMoreira.Domain.Marca", "Modelo")
+                    b.HasOne("AutoMoreira.Domain.Modelo", "Modelo")
                         .WithMany()
                         .HasForeignKey("ModeloId")
                         .OnDelete(DeleteBehavior.Cascade)

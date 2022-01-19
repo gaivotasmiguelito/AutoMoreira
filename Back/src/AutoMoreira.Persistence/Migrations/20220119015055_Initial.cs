@@ -47,6 +47,9 @@ namespace AutoMoreira.Persistence.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     MarcaId = table.Column<int>(type: "INTEGER", nullable: false),
                     ModeloId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Versao = table.Column<string>(type: "TEXT", nullable: true),
+                    Combustivel = table.Column<string>(type: "TEXT", nullable: true),
+                    Preco = table.Column<double>(type: "REAL", nullable: false),
                     Ano = table.Column<int>(type: "INTEGER", nullable: false),
                     Cor = table.Column<string>(type: "TEXT", nullable: true),
                     Observacoes = table.Column<string>(type: "TEXT", nullable: true),
@@ -62,10 +65,10 @@ namespace AutoMoreira.Persistence.Migrations
                         principalColumn: "MarcaId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Veiculos_Marcas_ModeloId",
+                        name: "FK_Veiculos_Modelos_ModeloId",
                         column: x => x.ModeloId,
-                        principalTable: "Marcas",
-                        principalColumn: "MarcaId",
+                        principalTable: "Modelos",
+                        principalColumn: "ModeloId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -88,10 +91,10 @@ namespace AutoMoreira.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Modelos");
+                name: "Veiculos");
 
             migrationBuilder.DropTable(
-                name: "Veiculos");
+                name: "Modelos");
 
             migrationBuilder.DropTable(
                 name: "Marcas");
