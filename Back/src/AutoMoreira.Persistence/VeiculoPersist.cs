@@ -32,7 +32,7 @@ namespace AutoMoreira.Persistence
             IQueryable<Veiculo> query = _context.Veiculos;
 
 
-            query = query.AsNoTracking().OrderBy(p => p.VeiculoId)
+            query = query.AsNoTracking().Include(x => x.Marca).Include(y => y.Modelo).OrderBy(p => p.VeiculoId)
                          .Where(p => p.VeiculoId == Id);
 
             return await query.FirstOrDefaultAsync();
