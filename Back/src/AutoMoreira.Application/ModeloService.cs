@@ -102,6 +102,21 @@ namespace AutoMoreira.Application
             }
         }
 
+        public async Task<Modelo[]> GetModeloByMarcaIdAsync(int marcaId)
+        {
+            try
+            {
+                var modelos = await _modeloPersist.GetModeloByMarcaIdAsync(marcaId);
+                if (modelos == null) return null;
+
+                return modelos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         
     }
 }

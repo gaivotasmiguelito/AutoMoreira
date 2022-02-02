@@ -14,6 +14,7 @@ namespace AutoMoreira.Application.Contratos
 
         Task<Modelo[]> GetAllModelosAsync();
         Task<Modelo> GetModeloByIdAsync(int modeloId);
+        Task<Modelo[]> GetModeloByMarcaIdAsync(int marcaId);
         
     }
 }

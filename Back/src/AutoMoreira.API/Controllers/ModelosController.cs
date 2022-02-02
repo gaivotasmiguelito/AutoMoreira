@@ -57,6 +57,22 @@ namespace AutoMoreira.API.Controllers
                     $"Erro ao tentar recuperar eventos. Erro: {ex.Message}");
             }
         }
+        [HttpGet("marcaId/{id}")]
+        public async Task<IActionResult> GetByMarcaId(int id)
+        {
+            try
+            {
+                var veiculo = await _modeloService.GetModeloByMarcaIdAsync(id);
+                if (veiculo == null) return NotFound("Veiculo por Id não encontrado.");
+
+                return Ok(veiculo);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar recuperar eventos. Erro: {ex.Message}");
+            }
+        }
 
         
         [HttpPost]

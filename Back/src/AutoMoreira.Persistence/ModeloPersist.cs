@@ -31,10 +31,22 @@ namespace AutoMoreira.Persistence
             IQueryable<Modelo> query = _context.Modelos;
 
 
-            query = query.AsNoTracking().OrderBy(p => p.ModeloId)
+            query = query.AsNoTracking().Include(x => x.Marca).OrderBy(p => p.ModeloId)
                          .Where(p => p.ModeloId == Id);
 
             return await query.FirstOrDefaultAsync();
+        }
+
+        //Rafael
+        public async Task<Modelo[]> GetModeloByMarcaIdAsync(int Id)
+        {
+            IQueryable<Modelo> query = _context.Modelos;
+
+
+            query = query.AsNoTracking().Include(x => x.Marca).OrderBy(p => p.MarcaId)
+                         .Where(p => p.MarcaId == Id);
+
+            return await query.ToArrayAsync();
         }
         
     }
